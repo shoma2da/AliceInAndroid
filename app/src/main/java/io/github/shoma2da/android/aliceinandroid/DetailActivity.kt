@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.ScrollView
+import android.widget.Toast
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
 /**
@@ -32,13 +33,18 @@ class DetailActivity : AppCompatActivity() {
 
         val story = intent.getSerializableExtra(PARAM_KEY_STORY) as Story?
 
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = story?.title
+        if (story != null) {
+            val toolbar = findViewById(R.id.toolbar) as Toolbar
+            setSupportActionBar(toolbar)
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.title = story?.title
 
-        val content = findViewById(R.id.content) as ViewGroup
-        LayoutInflater.from(this).inflate(R.layout.layout_prologue, content, true)
+            val content = findViewById(R.id.content) as ViewGroup
+            LayoutInflater.from(this).inflate(story.resourceId, content, true)
+        } else {
+            Toast.makeText(this, "エラーが発生しました", Toast.LENGTH_SHORT).show()
+            onBackPressed()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
