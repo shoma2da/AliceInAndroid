@@ -1,6 +1,7 @@
 package io.github.shoma2da.android.aliceinandroid
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceActivity
@@ -13,6 +14,7 @@ import co.meyasuba.android.sdk.Meyasubaco
 import io.github.shoma2da.android.aliceinandroid.extensions.getMyPackageVersionName
 import io.github.shoma2da.android.aliceinandroid.extensions.shareToTwitter
 import io.github.shoma2da.android.aliceinandroid.model.RecommendLinks
+import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
 import io.github.shoma2da.android.aliceinandroid.model.Stories
 
 /**
@@ -58,6 +60,7 @@ class SettingFragment : PreferenceFragment() {
                     .setMessage("読書履歴などが削除されます。よろしいですか？")
                     .setPositiveButton("初期化する", { dialog, which ->
                         Stories.reset(activity)
+                        ShareRestriction.reset(activity)
                     })
                     .setNegativeButton("キャンセル", null)
                     .show()
@@ -77,9 +80,7 @@ class SettingFragment : PreferenceFragment() {
             AlertDialog.Builder(activity)
                     .setTitle(pref.title)
                     .setMessage(R.string.copyright)
-                    .setPositiveButton("OK", { dialog, which ->
-                        Stories.reset(activity)
-                    })
+                    .setPositiveButton("OK", null)
                     .show()
             true
         }

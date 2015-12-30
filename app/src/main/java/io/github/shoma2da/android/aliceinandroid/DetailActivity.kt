@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
@@ -12,6 +13,7 @@ import android.view.MenuItem
 import android.widget.ScrollView
 import android.widget.Toast
 import io.github.shoma2da.android.aliceinandroid.extensions.*
+import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
 /**
@@ -40,11 +42,34 @@ class DetailActivity : AppCompatActivity() {
         mStory = story
 
         if (story != null) {
+            checkShareRestriction(story)
             setupViews(story)
         } else {
             Toast.makeText(this, "エラーが発生しました", Toast.LENGTH_SHORT).show()
             onBackPressed()
         }
+    }
+
+    private fun checkShareRestriction(story:Story) {
+        //シェア制限をかける
+        val restriction = ShareRestriction(this, story)
+        if (restriction.isValid()) {
+            return
+        }
+
+        AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setTitle("シェアしてください")
+                .setMessage("ここから先の章を読むにはTwitterにシェアが必要です。「シェアする」を選択してください。")
+                .setPositiveButton("シェアする", { dialog, which ->
+                    shareToTwitter()
+                    restriction.setValid()
+                    true
+                })
+                .setNegativeButton("キャンセル", { dialog, which ->
+                    finish()
+                })
+                .show()
     }
 
     private fun setupViews(story:Story) {

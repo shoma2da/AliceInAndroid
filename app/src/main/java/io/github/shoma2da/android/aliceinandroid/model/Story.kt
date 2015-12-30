@@ -15,7 +15,7 @@ class Story(val number:Int, val title:String, val resourceId:Int) :Serializable 
         const val EMPTY_PROGRESS_VALUE = -1
     }
 
-    val listTitle = when(number < 0) {
+    val listTitle = when(number <= 0) {
         true -> title
         false -> "第 $number 章　$title"
     }
