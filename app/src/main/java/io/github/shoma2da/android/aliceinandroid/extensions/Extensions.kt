@@ -14,3 +14,10 @@ fun ScrollView.progressPercent():Int {
     }
 }
 
+fun ScrollView.scrollTo(progress:Int) {
+    val child = this.getChildAt(0)
+    when (child == null) {
+        true -> {}
+        false -> this.scrollTo(0, (child.height * progress / 100) - this.height)
+    }
+}

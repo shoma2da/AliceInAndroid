@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 class StoryAdapter(context:Context, stories:List<Story>) : ArrayAdapter<Story>(context, android.R.layout.simple_list_item_1, stories) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         val view = super.getView(position, convertView, parent) as TextView
-        view.text = getItem(position).listTitle()
+        view.text = getItem(position).listTitle
         view.tag = getItem(position)
         return view
     }

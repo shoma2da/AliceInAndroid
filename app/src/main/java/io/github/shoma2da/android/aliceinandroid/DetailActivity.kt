@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.widget.ScrollView
 import android.widget.Toast
-import io.github.shoma2da.android.aliceinandroid.extensions.progressPercent
+import io.github.shoma2da.android.aliceinandroid.extensions.*
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
 /**
@@ -30,12 +30,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private var mContentView:ScrollView? = null
+    private var mStory:Story? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
         val story = intent.getSerializableExtra(PARAM_KEY_STORY) as Story?
+        mStory = story
 
         if (story != null) {
             setupViews(story)
@@ -56,10 +58,26 @@ class DetailActivity : AppCompatActivity() {
         mContentView = findViewById(R.id.content) as ScrollView
         LayoutInflater.from(this).inflate(story.resourceId, mContentView, true)
 
-        //スクロールしたときの動作設定
+        //スクロール位置の初期設定
+        mContentView?.post {
+            val progress = story?.loadProgress(this)
+            mContentView?.scrollTo(progress)
+        }
+
+        //スクロール時の動作設定
         mContentView?.setOnScrollChangeListener({ view, x, y, oldX, oldY ->
             supportActionBar!!.title = "${story?.title}（${mContentView?.progressPercent()}%）"
         })
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        val list = mContentView
+        val story = mStory
+        if (story != null && list != null) {
+            story.saveProgress(this, list.progressPercent())
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
