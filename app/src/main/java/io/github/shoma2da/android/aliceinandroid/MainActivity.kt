@@ -1,15 +1,19 @@
 package io.github.shoma2da.android.aliceinandroid
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import co.meyasuba.android.sdk.Meyasubaco
 import io.github.shoma2da.android.aliceinandroid.model.Stories
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
@@ -39,6 +43,25 @@ class MainActivity : AppCompatActivity() {
         val adapter = StoryAdapter(this, Stories.list)
         mListView?.adapter = adapter
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menus, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId) {
+            R.id.menu_help -> {
+                Meyasubaco.showCommentActivity(this)
+                return true
+            }
+            R.id.menu_setting -> {
+                startActivity(Intent(this, SettingActivity::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
 
