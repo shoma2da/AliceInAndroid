@@ -80,9 +80,11 @@ class StoryAdapter(context:Context, stories:List<Story>) : ArrayAdapter<Story>(c
         val story = getItem(position)
         view.tag = story
         view.text = story.listTitle
-        if (story.isHaveNotProgress(context)) {
-            view.typeface = Typeface.DEFAULT_BOLD
-        }
+
+        //未読・既読表示
+        val typeface = if (story.isHaveNotProgress(context)) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
+        view.typeface = typeface
+
         return view
     }
 }
