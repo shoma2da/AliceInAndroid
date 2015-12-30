@@ -12,6 +12,9 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.widget.ScrollView
 import android.widget.Toast
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import io.github.shoma2da.android.aliceinandroid.extensions.*
 import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
 import io.github.shoma2da.android.aliceinandroid.model.Story
@@ -33,10 +36,22 @@ class DetailActivity : AppCompatActivity() {
 
     private var mContentView:ScrollView? = null
     private var mStory:Story? = null
+    private var mInterstitial:InterstitialAd? = null
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
+        //インタースティシャル広告の用意
+        mInterstitial = InterstitialAd(this);
+        mInterstitial?.adUnitId = getString(R.string.interstitial_ad_unit_id)
+        val adRequest = AdRequest.Builder().build();
+        mInterstitial?.loadAd(adRequest);
+        mInterstitial?.adListener = object:AdListener(){
+            override fun onAdClosed() {
+                finish()
+            }
+        }
 
         val story = intent.getSerializableExtra(PARAM_KEY_STORY) as Story?
         mStory = story
@@ -111,5 +126,15 @@ class DetailActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        val interstitial = mInterstitial ?: return
+
+        if (interstitial.isLoaded) {
+            interstitial.show()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

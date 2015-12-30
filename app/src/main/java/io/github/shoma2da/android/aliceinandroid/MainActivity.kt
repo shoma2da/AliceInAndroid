@@ -14,6 +14,9 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import co.meyasuba.android.sdk.Meyasubaco
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 import io.github.shoma2da.android.aliceinandroid.model.Stories
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
@@ -34,6 +37,11 @@ class MainActivity : AppCompatActivity() {
             DetailActivity.start(this, story)
         }
         mListView = listView
+
+        //広告の設定
+        val adView = findViewById(R.id.adView) as AdView;
+        val adRequest = AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
     override fun onResume() {
