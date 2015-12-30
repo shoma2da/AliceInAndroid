@@ -46,14 +46,17 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupViews(story:Story) {
+        //Toolbarを初期化
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = story?.title
 
+        //表示内容を初期化
         mContentView = findViewById(R.id.content) as ScrollView
         LayoutInflater.from(this).inflate(story.resourceId, mContentView, true)
 
+        //スクロールしたときの動作設定
         mContentView?.setOnScrollChangeListener({ view, x, y, oldX, oldY ->
             supportActionBar!!.title = "${story?.title}（${mContentView?.progressPercent()}%）"
         })
