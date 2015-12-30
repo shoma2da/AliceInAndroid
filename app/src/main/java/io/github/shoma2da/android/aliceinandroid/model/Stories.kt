@@ -1,7 +1,9 @@
 package io.github.shoma2da.android.aliceinandroid.model
 
+import android.content.Context
 import io.github.shoma2da.android.aliceinandroid.R
 import kotlin.collections.arrayListOf
+import kotlin.collections.forEach
 
 /**
  * Created by shoma2da on 2015/12/30.
@@ -23,5 +25,10 @@ class Stories {
                 Story(11, "タルトをぬすんだのはだれ？", R.layout.layout_prologue),
                 Story(12, "アリスのしょうこ", R.layout.layout_prologue)
         )
+
+        fun reset(context:Context) {
+            val pref = context.getSharedPreferences(Story.FILE_NAME, Context.MODE_PRIVATE)
+            pref.edit().clear().apply()
+        }
     }
 }

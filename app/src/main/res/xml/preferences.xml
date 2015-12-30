@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="設定" >
+        <Preference
+            android:key="initialize"
+            android:title="初期化する" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="お問い合わせ" >
+        <Preference
+            android:key="request"
+            android:title="ご意見・ご要望 " />
+        <Preference
+            android:key="question"
+            android:title="よくある質問" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="基本情報" >
+        <Preference
+            android:key="version"
+            android:title="バージョン"
+            android:summary="1.0.0" />
+        <Preference
+            android:key="share"
+            android:title="このアプリを紹介する" />
+        <Preference
+            android:title="評価する">
+            <intent android:action="android.intent.action.VIEW"
+                    android:data="https://play.google.com/store/apps/details?id=io.github.shoma2da.android.aliceinandroid" />
+        </Preference>
+        <Preference
+            android:key="copyright"
+            android:title="著作権関連情報" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
