@@ -12,6 +12,7 @@ class Story(val number:Int, val title:String, val resourceId:Int) :Serializable 
 
     companion object {
         const val FILE_NAME = "story_progresses"
+        const val EMPTY_PROGRESS_VALUE = -1
     }
 
     val listTitle = when(number < 0) {
@@ -26,6 +27,8 @@ class Story(val number:Int, val title:String, val resourceId:Int) :Serializable 
 
     fun loadProgress(context:Context):Int {
         val pref = context.getSharedPreferences(FILE_NAME, MODE_PRIVATE)
-        return pref.getInt("$number", 0)
+        return pref.getInt("$number", EMPTY_PROGRESS_VALUE)
     }
+
+    fun isHaveNotProgress(context:Context) = (loadProgress(context) == EMPTY_PROGRESS_VALUE)
 }
