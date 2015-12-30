@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/AppTheme"
     tools:context="io.github.shoma2da.android.aliceinandroid.DetailActivity">
 
     <android.support.v7.widget.Toolbar
@@ -17,12 +18,11 @@
         app:theme="@style/ToolbarTheme"
         />
 
-    <RelativeLayout
+    <ScrollView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="top|left"
         >
-    </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>
