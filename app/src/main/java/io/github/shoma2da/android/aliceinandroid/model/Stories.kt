@@ -3,7 +3,6 @@ package io.github.shoma2da.android.aliceinandroid.model
 import android.content.Context
 import io.github.shoma2da.android.aliceinandroid.R
 import kotlin.collections.arrayListOf
-import kotlin.collections.forEach
 
 /**
  * Created by shoma2da on 2015/12/30.

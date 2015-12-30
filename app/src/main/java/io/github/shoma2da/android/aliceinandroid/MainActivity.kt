@@ -15,7 +15,6 @@ import android.widget.ListView
 import android.widget.TextView
 import co.meyasuba.android.sdk.Meyasubaco
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import io.github.shoma2da.android.aliceinandroid.model.Stories
 import io.github.shoma2da.android.aliceinandroid.model.Story

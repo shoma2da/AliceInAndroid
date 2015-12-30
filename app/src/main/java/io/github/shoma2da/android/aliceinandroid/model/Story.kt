@@ -2,7 +2,6 @@ package io.github.shoma2da.android.aliceinandroid.model
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import android.support.annotation.LayoutRes
 import java.io.Serializable
 
 /**

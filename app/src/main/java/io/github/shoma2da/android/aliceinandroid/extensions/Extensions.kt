@@ -3,7 +3,6 @@ package io.github.shoma2da.android.aliceinandroid.extensions
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.widget.ScrollView
 
 /**
