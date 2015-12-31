@@ -12,8 +12,8 @@ class Stories {
         val list = arrayListOf(
                 Story(0, "巻頭詩", R.layout.layout_prologue),
                 Story(1, "うさぎの穴をまっさかさま", R.layout.layout_1st),
-                Story(2, "涙の池", R.layout.layout_prologue),
-                Story(3, "がくがくかけっことながいお話", R.layout.layout_prologue),
+                Story(2, "涙の池", R.layout.layout_2nd),
+                Story(3, "がくがくかけっことながいお話", R.layout.layout_3rd),
                 Story(4, "うさぎ、小さなビルをおくりこむ", R.layout.layout_prologue),
                 Story(5, "いもむしの忠告", R.layout.layout_prologue),
                 Story(6, "ぶたとコショウ", R.layout.layout_prologue),
