@@ -3,7 +3,15 @@ package io.github.shoma2da.android.aliceinandroid.extensions
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ScrollView
+import android.widget.TextView
+import java.util.*
+import kotlin.collections.arrayListOf
+import kotlin.collections.linkedListOf
+import kotlin.collections.listOf
+import kotlin.collections.toList
 
 /**
  * Created by shoma2da on 2015/12/30.
@@ -35,4 +43,13 @@ fun Context.shareToTwitter() {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url));
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     startActivity(intent);
+}
+
+fun ViewGroup.getChildren():List<View> {
+    val list = arrayListOf<View>()
+    for (i in 0..childCount) {
+        val child = getChildAt(i)
+        list.add(child)
+    }
+    return list.toList()
 }

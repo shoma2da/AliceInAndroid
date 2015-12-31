@@ -3,6 +3,10 @@
 
     <PreferenceCategory
         android:title="設定" >
+        <CheckBoxPreference
+            android:key="enlarge_character_size"
+            android:defaultValue="false"
+            android:title="文字を大きくする"/>
         <Preference
             android:key="initialize"
             android:title="初期化する" />
