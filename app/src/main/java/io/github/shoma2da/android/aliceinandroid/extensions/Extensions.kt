@@ -1,5 +1,6 @@
 package io.github.shoma2da.android.aliceinandroid.extensions
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
 import android.widget.TextView
+import com.google.android.gms.analytics.HitBuilders
+import com.google.android.gms.analytics.Tracker
+import io.github.shoma2da.android.aliceinandroid.AliceApplication
 import java.util.*
 import kotlin.collections.arrayListOf
 import kotlin.collections.linkedListOf
@@ -52,4 +56,12 @@ fun ViewGroup.getChildren():List<View> {
         list.add(child)
     }
     return list.toList()
+}
+
+fun Application.getTracker():Tracker {
+    return (this as AliceApplication).getDefaultTracker()
+}
+
+fun Tracker.sendScreenView() {
+    send(HitBuilders.ScreenViewBuilder().build())
 }

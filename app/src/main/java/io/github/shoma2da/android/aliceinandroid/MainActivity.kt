@@ -16,6 +16,8 @@ import android.widget.TextView
 import co.meyasuba.android.sdk.Meyasubaco
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import io.github.shoma2da.android.aliceinandroid.extensions.getTracker
+import io.github.shoma2da.android.aliceinandroid.extensions.sendScreenView
 import io.github.shoma2da.android.aliceinandroid.model.Stories
 import io.github.shoma2da.android.aliceinandroid.model.Story
 
@@ -41,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         val adView = findViewById(R.id.adView) as AdView;
         val adRequest = AdRequest.Builder().build();
         adView.loadAd(adRequest);
+
+        //ログ
+        val tracker = application.getTracker()
+        tracker.setScreenName(MainActivity::class.java.simpleName)
+        tracker.sendScreenView()
     }
 
     override fun onResume() {

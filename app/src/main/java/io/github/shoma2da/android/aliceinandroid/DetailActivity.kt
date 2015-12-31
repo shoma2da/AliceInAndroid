@@ -18,10 +18,8 @@ import android.widget.Toast
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
-import io.github.shoma2da.android.aliceinandroid.extensions.getChildren
-import io.github.shoma2da.android.aliceinandroid.extensions.progressPercent
-import io.github.shoma2da.android.aliceinandroid.extensions.scrollTo
-import io.github.shoma2da.android.aliceinandroid.extensions.shareToTwitter
+import com.google.android.gms.analytics.HitBuilders
+import io.github.shoma2da.android.aliceinandroid.extensions.*
 import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
 import io.github.shoma2da.android.aliceinandroid.model.Story
 import kotlin.collections.filter
@@ -80,16 +78,41 @@ class DetailActivity : AppCompatActivity() {
             return
         }
 
+        //ログ
+        val tracker = application.getTracker()
+        tracker.send(HitBuilders.EventBuilder()
+                .setCategory("Share")
+                .setAction("ShowDialog")
+                .setLabel(story.listTitle)
+                .build())
+
+
         AlertDialog.Builder(this)
                 .setCancelable(false)
                 .setTitle("シェアしてください")
                 .setMessage("ここから先の章を読むにはTwitterにシェアが必要です。「シェアする」を選択してください。")
                 .setPositiveButton("シェアする", { dialog, which ->
+                    //ログ
+                    val tracker = application.getTracker()
+                    tracker.send(HitBuilders.EventBuilder()
+                            .setCategory("Share")
+                            .setAction("Force_Share")
+                            .setLabel(story.listTitle)
+                            .build())
+
                     shareToTwitter()
                     restriction.setValid()
                     true
                 })
                 .setNegativeButton("キャンセル", { dialog, which ->
+                    //ログ
+                    val tracker = application.getTracker()
+                    tracker.send(HitBuilders.EventBuilder()
+                            .setCategory("Share")
+                            .setAction("Force_Cancel")
+                            .setLabel(story.listTitle)
+                            .build())
+
                     finish()
                 })
                 .show()
@@ -130,6 +153,16 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+
+        //ログ
+        val tracker = application.getTracker()
+        tracker.setScreenName(DetailActivity::class.java.simpleName)
+        tracker.sendScreenView()
+        tracker.send(HitBuilders.EventBuilder()
+                .setCategory("Story")
+                .setAction("StartRead")
+                .setLabel(story.listTitle)
+                .build())
     }
 
     override fun onPause() {
@@ -138,7 +171,17 @@ class DetailActivity : AppCompatActivity() {
         val list = mContentView
         val story = mStory
         if (story != null && list != null) {
-            story.saveProgress(this, list.progressPercent())
+            val progress = list.progressPercent()
+            story.saveProgress(this, progress)
+
+            //ログ
+            val tracker = application.getTracker()
+            tracker.send(HitBuilders.EventBuilder()
+                    .setCategory("Story")
+                    .setAction("FinishRead")
+                    .setLabel(story.listTitle)
+                    .setValue(progress.toLong())
+                    .build())
         }
     }
 

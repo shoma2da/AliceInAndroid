@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import co.meyasuba.android.sdk.Meyasubaco
 import io.github.shoma2da.android.aliceinandroid.extensions.getMyPackageVersionName
+import io.github.shoma2da.android.aliceinandroid.extensions.getTracker
+import io.github.shoma2da.android.aliceinandroid.extensions.sendScreenView
 import io.github.shoma2da.android.aliceinandroid.extensions.shareToTwitter
 import io.github.shoma2da.android.aliceinandroid.model.RecommendLinks
 import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
@@ -35,6 +37,11 @@ class SettingActivity : AppCompatActivity() {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
+
+        //ログ
+        val tracker = application.getTracker()
+        tracker.setScreenName(SettingActivity::class.java.simpleName)
+        tracker.sendScreenView()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
