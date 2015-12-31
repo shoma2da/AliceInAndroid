@@ -25,13 +25,15 @@
         style="@style/AppTheme"
         android:textSize="18sp"
         android:drawableLeft="@drawable/ic_lightbulb_outline_black"
-        />
+        android:visibility="gone"
+        /><!-- Amazonがダメなようなので一旦gone表示 -->
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="#bbb"
-        />
+        android:visibility="gone"
+        /><!-- Amazonがダメなようなので一旦gone表示 -->
 
     <fragment
         android:id="@+id/fragment_setting"
