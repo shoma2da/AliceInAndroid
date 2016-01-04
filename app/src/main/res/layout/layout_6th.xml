@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/sixth_first"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_first"
+        />
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/sixth_second"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_second"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:gravity="center"
+        android:text="@string/sixth_third"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_fourth"
+        />
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/sixth_third"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_fifxth"
+        />
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/sixth_fourth"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_sixth"
+        />
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/sixth_fifth"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/sixth_seventh"
+        />
+</LinearLayout>

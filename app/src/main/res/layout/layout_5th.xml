@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/fifth_first"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/fifth_first"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/fifth_second"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:gravity="center"
+        android:text="@string/fifth_second"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/fifth_third"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:gravity="center"
+        android:text="@string/fifth_third"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/fifth_fourth"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:gravity="center"
+        android:text="@string/fifth_fourth"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/fifth_fifth"
+        android:background="@android:color/white"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:gravity="center"
+        android:text="@string/fifth_fifth"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme"
+        android:text="@string/fifth_sixth"
+        />
+</LinearLayout>
