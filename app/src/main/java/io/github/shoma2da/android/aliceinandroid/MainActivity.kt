@@ -2,6 +2,7 @@ package io.github.shoma2da.android.aliceinandroid
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -86,6 +87,7 @@ class StoryAdapter(context:Context, stories:List<Story>) : ArrayAdapter<Story>(c
         val story = getItem(position)
         view.tag = story
         view.text = story.listTitle
+        view.setTextColor(Color.BLACK)
 
         //未読・既読表示
         val typeface = if (story.isHaveNotProgress(context)) Typeface.DEFAULT_BOLD else Typeface.DEFAULT

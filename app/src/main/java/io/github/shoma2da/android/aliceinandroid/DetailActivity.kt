@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.util.TypedValue
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
@@ -137,9 +135,9 @@ class DetailActivity : AppCompatActivity() {
         }
 
         //スクロール時の動作設定
-        listView.setOnScrollChangeListener({ view, x, y, oldX, oldY ->
+        listView.viewTreeObserver.addOnScrollChangedListener {
             supportActionBar!!.title = "${story.title}（${listView.progressPercent()}%）"
-        })
+        }
 
         //設定によっては文字を大きくする
         val pref = PreferenceManager.getDefaultSharedPreferences(this)
