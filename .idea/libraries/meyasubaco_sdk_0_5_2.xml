@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="meyasubaco-sdk-0.5.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/co.meyasuba.android.sdk/meyasubaco-sdk/0.5.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/co.meyasuba.android.sdk/meyasubaco-sdk/0.5.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/co.meyasuba.android.sdk/meyasubaco-sdk/0.5.2/dc459d71d94a0e43ed3c377ff4e06fbf9a9e1f62/meyasubaco-sdk-0.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

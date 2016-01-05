@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">不思議の国のアリス</string>
+    <string name="banner_ad_unit_id">ca-app-pub-8704720300499162/7430601811</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-8704720300499162/7430601811</string>
 </resources>
