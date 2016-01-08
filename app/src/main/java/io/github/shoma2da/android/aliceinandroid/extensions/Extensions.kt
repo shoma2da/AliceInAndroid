@@ -7,14 +7,10 @@ import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ScrollView
-import android.widget.TextView
 import com.google.android.gms.analytics.HitBuilders
 import com.google.android.gms.analytics.Tracker
 import io.github.shoma2da.android.aliceinandroid.AliceApplication
-import java.util.*
 import kotlin.collections.arrayListOf
-import kotlin.collections.linkedListOf
-import kotlin.collections.listOf
 import kotlin.collections.toList
 
 /**
