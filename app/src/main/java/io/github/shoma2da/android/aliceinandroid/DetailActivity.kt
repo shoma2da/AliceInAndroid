@@ -7,9 +7,10 @@ import android.preference.PreferenceManager
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.util.TypedValue
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.ViewGroup
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
@@ -20,7 +21,6 @@ import com.google.android.gms.analytics.HitBuilders
 import io.github.shoma2da.android.aliceinandroid.extensions.*
 import io.github.shoma2da.android.aliceinandroid.model.ShareRestriction
 import io.github.shoma2da.android.aliceinandroid.model.Story
-import kotlin.collections.filter
 import kotlin.collections.forEach
 
 /**

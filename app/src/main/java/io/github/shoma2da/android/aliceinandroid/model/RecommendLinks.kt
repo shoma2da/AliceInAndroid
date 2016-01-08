@@ -19,6 +19,6 @@ class RecommendLinks {
             /*コミックアンソロジー極 不思議の国のアリス*/ "http://www.amazon.co.jp/gp/product/4757538081/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4757538081&linkCode=as2&tag=shoma2da-22"
     )
 
-    fun getRandom() = urls.get(Random().nextInt(urls.size))
+    fun getRandom() = urls[Random().nextInt(urls.size)]
 
 }
